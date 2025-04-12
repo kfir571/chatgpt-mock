@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 function ChatInput({ onAddMessage }) {
     const [input, setInput] = useState("");
+    const textareaRef = useRef(null);
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -13,16 +15,34 @@ function ChatInput({ onAddMessage }) {
         setInput("");
     };
 
-    
+    useEffect(() => {
+        if (textareaRef.current) {
+        textareaRef.current.style.height = "auto";
+        textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 150)}px`;
+        }
+    }, [input]);
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();  
+        handleSend(e);       
+        }
+    };
+
+     
 
     return (
     <form onSubmit={handleSend} className="chat-input">
-        <input
+        <textarea
+            ref={textareaRef}
             value={input} 
             onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
             placeholder="Ask anyting"   
         />
-        <button type="submit">שלח</button>
+        <button type="submit">
+            <FaArrowUp size={24} />
+        </button>
     </form>
     );
 } export default ChatInput;
