@@ -2,8 +2,6 @@ import { useState } from "react";
 
 function ChatInput({ onAddMessage }) {
     const [input, setInput] = useState("");
-    const [type, setType] = useState("qwery");
-
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -11,26 +9,18 @@ function ChatInput({ onAddMessage }) {
         if (input.trim() === "")
             return;
 
-        onAddMessage({type:type, message:input});
-        
-        if (type === "qwery")
-        {
-            setType("response");
-        }
-        else {
-            setType("qwery");
-        }
+        onAddMessage({type:"query", message:input});
         setInput("");
     };
 
     
 
     return (
-    <form onSubmit={handleSend}>
+    <form onSubmit={handleSend} className="chat-input">
         <input
             value={input} 
             onChange={(e) => setInput(e.target.value)}
-            placeholder="כתוב הודעה"    
+            placeholder="Ask anyting"   
         />
         <button type="submit">שלח</button>
     </form>
