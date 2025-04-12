@@ -68,7 +68,7 @@ body, html {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 
-  width: calc(100vw - 225px);
+  width: 80%;
 }
 
 .message-item {
