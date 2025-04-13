@@ -47,7 +47,7 @@ body, html {
   display: flex;
   flex-direction: column;
   flex: 9;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: #282c34;
   padding: 16px;
   overflow: hidden;
