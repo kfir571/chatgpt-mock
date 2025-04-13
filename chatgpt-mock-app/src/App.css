@@ -54,7 +54,7 @@ body, html {
 }
 
 .message-list {
-  flex: 9;
+  flex: 1;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -103,7 +103,6 @@ body, html {
   flex: 1;
   position: static;
   padding:8px;
-  margin-bottom: 8px;
   background-color: #363940;
   border-radius: 32px;
   gap: 8px;
@@ -155,10 +154,9 @@ body, html {
   .chat-input {
     display: flex;
     flex-direction: row;
-    flex: 1;
+    flex: 2;
     position: static;
     padding:8px;
-    margin-bottom: 8px;
     background-color: #363940;
     border-radius: 32px;
     gap: 8px;
@@ -180,7 +178,7 @@ body, html {
   }
 
   .message-list {
-    flex: 9;
+    flex: 1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
