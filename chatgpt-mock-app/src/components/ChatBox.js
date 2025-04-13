@@ -5,16 +5,9 @@ import { sendToGPTApi } from "../services/gptService";
 
 function ChatBox() {
     const [messages, setMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
-
 
     const sendToGPT = async (queryText) => {
-
-        console.log("queryText:" + queryText);
-
         try {
-            setIsLoading(true);
             setMessages((prevMessages) => [
                 ...prevMessages,
                 { type: "response", message: "thinking..." }
@@ -31,9 +24,7 @@ function ChatBox() {
                 ...prevMessages.slice(0, -1),
                 { type: "response", message: "Error Send To GPT"}
           ]);
-        } finally {
-            setIsLoading(false);
-          }
+        } 
       };
 
     const handelGetNewMessage = (newMessage) => {
