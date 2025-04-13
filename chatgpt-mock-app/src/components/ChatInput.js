@@ -33,7 +33,7 @@ function ChatInput({ onAddMessage }) {
 
     return (
     <form onSubmit={handleSend} className="chat-input">
-        <textarea
+        <textarea className="textarea"
             ref={textareaRef}
             value={input} 
             onChange={(e) => setInput(e.target.value)}
