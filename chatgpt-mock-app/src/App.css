@@ -40,7 +40,7 @@ body, html {
   justify-content: space-between;
   height: 100vh;
   align-items: center;
-
+  gap: 8px;
 }
 
 .chat-box {
@@ -49,7 +49,7 @@ body, html {
   flex: 9;
   height: 100vh;
   background-color: #282c34;
-  padding: 16px;
+  /* padding: 16px; */
   overflow: hidden;
 }
 
@@ -60,11 +60,9 @@ body, html {
   flex-wrap: nowrap;
   gap: 8px;
   overflow-y: auto;
-  padding-bottom: 16px;
-  padding-top: 32px;
+  /* padding-bottom: 16px; */
   background-color: transparent;
   align-items: stretch;
-  /* width: 100%; */
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -76,7 +74,6 @@ body, html {
   color: #000;
   padding: 10px 14px;
   border-radius: 16px;
-  margin-bottom: 8px;
   max-width: 60%;
   word-wrap: break-word;
   white-space: pre-wrap;
@@ -102,7 +99,7 @@ body, html {
   flex-direction: row;
   flex: 1;
   position: static;
-  padding:8px;
+  /* padding:8px; */
   margin-bottom: 8px;
   background-color: #363940;
   border-radius: 32px;
@@ -153,6 +150,9 @@ body, html {
 .spinner {
   animation: spin 1s linear infinite;
 }
+.k-gpt {
+  background: transparent;
+}
 
 @media (max-width: 600px) {
   .chat-input {
@@ -189,11 +189,8 @@ body, html {
     flex-wrap: nowrap;
     gap: 8px;
     overflow-y: auto;
-    padding-bottom: 16px;
-    padding-top: 32px;
     background-color: transparent;
     align-items: stretch;
-    /* width: 100%; */
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
@@ -207,6 +204,7 @@ body, html {
     justify-content: space-between;
     height: calc(var(--vh, 1vh) * 100);
     align-items: center;
+    gap: 8px;
   
   }
 }

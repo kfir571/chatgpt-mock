@@ -2,6 +2,7 @@ import { useState } from "react";
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 import { sendToGPTApi } from "../services/gptService";
+import Title from "./Title";
 
 function ChatBox() {
     const [messages, setMessages] = useState([]);
@@ -37,6 +38,9 @@ function ChatBox() {
 
     return (
         <div className="temp">
+            <div>
+                <Title className="k-gpt"/>
+            </div>
             <div className="chat-box">
                 <MessageList messages={messages} />
             </div>
