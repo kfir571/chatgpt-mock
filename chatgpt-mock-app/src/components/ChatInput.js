@@ -1,9 +1,9 @@
 import { useRef, useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowUp, FaSpinner } from "react-icons/fa";
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-function ChatInput({ onAddMessage }) {
+function ChatInput({ onAddMessage, isLoading }) {
     const [input, setInput] = useState("");
     const textareaRef = useRef(null);
     
@@ -26,13 +26,11 @@ function ChatInput({ onAddMessage }) {
     }, [input]);
 
     const handleKeyDown = (e) => {
-        if (e.key === "Enter" && !e.shiftKey && !isMobile) {
-        e.preventDefault();  
-        handleSend(e);       
+        if (e.key === "Enter" && !e.shiftKey && !isMobile && !isLoading) {
+            e.preventDefault();  
+            handleSend(e);       
         }
     };
-
-     
 
     return (
     <form onSubmit={handleSend} className="chat-input">
@@ -43,8 +41,12 @@ function ChatInput({ onAddMessage }) {
             onKeyDown={handleKeyDown}
             placeholder="What do you have in mind?"   
         />
-        <button type="submit">
-            <FaArrowUp size={24} />
+        <button type="submit" disabled={isLoading}>
+        {isLoading ? (
+                    <FaSpinner className="spinner" size={24} />
+                ) : (
+                    <FaArrowUp size={24} />
+                )}
         </button>
     </form>
     );

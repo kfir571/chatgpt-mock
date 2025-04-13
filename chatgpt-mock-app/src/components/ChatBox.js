@@ -5,9 +5,10 @@ import { sendToGPTApi } from "../services/gptService";
 
 function ChatBox() {
     const [messages, setMessages] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(false);
     const sendToGPT = async (queryText) => {
         try {
+            setIsLoading(true);
             setMessages((prevMessages) => [
                 ...prevMessages,
                 { type: "response", message: "thinking..." }
@@ -25,6 +26,8 @@ function ChatBox() {
                 { type: "response", message: "Error Send To GPT"}
           ]);
         } 
+
+        setIsLoading(false)
       };
 
     const handelGetNewMessage = (newMessage) => {
@@ -38,7 +41,7 @@ function ChatBox() {
                 <MessageList messages={messages} />
             </div>
             <div className="">
-                <ChatInput onAddMessage={handelGetNewMessage} />
+                <ChatInput onAddMessage={handelGetNewMessage} isLoading={isLoading}/>
             </div>
         </div>
         
