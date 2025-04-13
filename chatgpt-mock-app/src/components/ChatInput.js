@@ -38,7 +38,7 @@ function ChatInput({ onAddMessage }) {
             value={input} 
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask anyting"   
+            placeholder="What do you have in mind?"   
         />
         <button type="submit">
             <FaArrowUp size={24} />
