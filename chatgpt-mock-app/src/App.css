@@ -167,11 +167,13 @@ body, html {
   }
 
   .chat-input textarea {
-    font-size: 12px;
+    font-size: 16px;
+    transform: scale(0.9);
   }
 
   .message-item {
-    font-size: 14px;
+    font-size: 16px;
+    transform: scale(0.9);
     max-width: 80%;
   }
 
