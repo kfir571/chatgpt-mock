@@ -103,6 +103,7 @@ body, html {
   flex: 1;
   position: static;
   padding:8px;
+  margin-bottom: 8px;
   background-color: #363940;
   border-radius: 32px;
   gap: 8px;
@@ -169,6 +170,7 @@ body, html {
   .chat-input textarea {
     font-size: 16px;
     transform: scale(0.9);
+    margin-bottom: 8px;
   }
 
   .message-item {
