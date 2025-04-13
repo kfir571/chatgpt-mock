@@ -99,7 +99,7 @@ body, html {
   flex-direction: row;
   flex: 1;
   position: static;
-  /* padding:8px; */
+  padding:8px;
   margin-bottom: 8px;
   background-color: #363940;
   border-radius: 32px;
