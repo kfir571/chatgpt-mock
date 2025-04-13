@@ -1,9 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 function ChatInput({ onAddMessage }) {
     const [input, setInput] = useState("");
     const textareaRef = useRef(null);
+    
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -23,7 +26,7 @@ function ChatInput({ onAddMessage }) {
     }, [input]);
 
     const handleKeyDown = (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
+        if (e.key === "Enter" && !e.shiftKey && !isMobile) {
         e.preventDefault();  
         handleSend(e);       
         }
