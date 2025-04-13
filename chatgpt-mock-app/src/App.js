@@ -13,11 +13,11 @@ function App() {
 
     setVhVariable();
     window.addEventListener('resize', setVhVariable);
-    window.addEventListener('load', setVhVariable);
+    window.addEventListener('orientationchange', setVhVariable);
 
     return () => {
       window.removeEventListener('resize', setVhVariable);
-      window.removeEventListener('load', setVhVariable);
+      window.removeEventListener('orientationchange', setVhVariable);
     };
   }, []);
   
