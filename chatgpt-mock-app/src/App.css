@@ -49,6 +49,7 @@ html {
   max-height: 100dvh;
 }
 
+
 .message-list {
   flex: 1;
   display: flex;
@@ -93,19 +94,67 @@ html {
   align-self: flex-start;
 }
 
+.input-box {
+  display: flex;
+  flex-direction: column;
+  /* gap: 8px; */
+  background-color: #363940;
+  border-radius: 32px;
+  padding: 8px;
+  /* margin-bottom: 8px; */
+
+}
+
+.input-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.input-buttons div {
+  display: flex;
+  gap: 8px;
+}
+
+.input-buttons button {
+  /* font-size: 40px; */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: rgb(142, 138, 138);
+
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#submit-btn {
+  background-color: #827f7f;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+#submit-btn:hover {
+  background-color: #eaeaea;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
 .chat-input {
   display: flex;
   flex-direction: row;
   flex: 1;
   position: static;
-  padding: 8px;
-  margin-bottom: 8px;
-  background-color: #363940;
-  border-radius: 32px;
-  gap: 8px;
-  box-sizing: border-box;
+  /* gap: 8px; */
   width: calc(100vw - 225px);
-  align-items: flex-end;
   height: inherit;
 }
 
@@ -115,8 +164,8 @@ html {
   font-size: 16px;
   border: none;
   outline: none;
-  color: #ffffff;
-  opacity: 0.9;
+  color: #bbbbbb;
+  /* opacity: 0.9; */
   background-color: transparent;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -124,7 +173,7 @@ html {
 }
 
 .chat-input input::placeholder {
-  color: #ffffff;
+  color: #bbbbbb;
   /* opacity: 0.9; */
 }
 
@@ -158,6 +207,19 @@ html {
 }
 
 @media (max-width: 600px) {
+  .input-box {
+    border-radius: 32px 32px 0px 0px
+  }
+
+  .input-buttons button {
+    width: 32px;
+    height: 32px;
+  }
+
+  #submit-btn {
+    width: 32px;
+    height: 32px;
+  }
 
   body,
   html {

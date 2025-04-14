@@ -1,5 +1,12 @@
 import { useRef, useEffect, useState } from "react";
-import { FaArrowUp, FaSpinner } from "react-icons/fa";
+import { 
+    FaArrowUp, 
+    FaSpinner, 
+    FaMicrophone, 
+    FaGlobe, 
+    FaPlus, 
+    FaEllipsisH
+    } from "react-icons/fa";
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -33,8 +40,8 @@ function ChatInput({ onAddMessage, isLoading }) {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSend} className="chat-input">
+        <div className="input-box">
+            <form id="chat-form" onSubmit={handleSend} className="chat-input">
                 <textarea className="textarea"
                     ref={textareaRef}
                     value={input}
@@ -42,14 +49,31 @@ function ChatInput({ onAddMessage, isLoading }) {
                     onKeyDown={handleKeyDown}
                     placeholder="What do you have in mind?"
                 />
-                <button type="submit" disabled={isLoading}>
-                    {isLoading ? (
-                        <FaSpinner className="spinner" size={24} />
-                    ) : (
-                        <FaArrowUp size={24} />
-                    )}
-                </button>
+
             </form>
+            <div className="input-buttons">
+                <div>
+                    <button><FaPlus size={18} color="#bbbbbb"/></button>
+                    <button><FaGlobe size={18} color="#bbbbbb"/></button>
+                    <button><FaEllipsisH size={18} color="#bbbbbb"/></button>
+                </div>
+                <div>
+                    <button><FaMicrophone size={18} /></button>
+                    <button 
+                        id="submit-btn"
+                        type="submit"
+                        disabled={isLoading}
+                        form="chat-form">
+                        {isLoading ? (
+                            <FaSpinner className="spinner" size={24} color="#363940"/>
+                        ) : (
+                            <FaArrowUp size={24} color="#363940"/>
+                        )}
+                    </button>
+                </div>
+
+
+            </div>
         </div>
     );
 } export default ChatInput;

@@ -43,7 +43,5 @@ function ChatBox() {
             <MessageList messages={messages} />
             <ChatInput onAddMessage={handelGetNewMessage} isLoading={isLoading} />
         </div>
-
-
     );
 } export default ChatBox;
