@@ -52,7 +52,7 @@ body, html {
   background-color: #282c34;
   /* padding: 16px; */
   overflow: hidden;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .message-list {
@@ -157,6 +157,10 @@ body, html {
 }
 
 @media (max-width: 600px) {
+  body, html {
+    margin: 0;
+    background-color: #282c34;
+  }
   .chat-box {
     display: flex;
     flex-direction: column;
