@@ -22,14 +22,16 @@
   font-size: 16px;
   color: white;
 
-  min-height: 100dvh; max-height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   background-color: #282c34;
   overflow: hidden;
@@ -42,7 +44,8 @@ body, html {
   gap: 8px;
   transition: height 0.3s ease;
 
-  min-height: 100dvh; max-height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
 }
 
 .message-list {
@@ -94,7 +97,7 @@ body, html {
   flex-direction: row;
   flex: 1;
   position: static;
-  padding:8px;
+  padding: 8px;
   margin-bottom: 8px;
   background-color: #363940;
   border-radius: 32px;
@@ -116,7 +119,7 @@ body, html {
   background-color: transparent;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
-  resize:vertical;
+  resize: vertical;
 }
 
 .chat-input input::placeholder {
@@ -131,8 +134,8 @@ body, html {
   background-color: transparent;
   color: #fff;
   border: none;
-  border-radius:32px 32px 32px 32px;
-  
+  border-radius: 32px 32px 32px 32px;
+
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -145,12 +148,18 @@ body, html {
 .spinner {
   animation: spin 1s linear infinite;
 }
+
 .k-gpt {
   background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 @media (max-width: 600px) {
-  body, html {
+
+  body,
+  html {
     margin: 0;
     background-color: #282c34;
   }
@@ -160,7 +169,7 @@ body, html {
     flex-direction: row;
     flex: 2;
     position: static;
-    padding:8px;
+    padding: 8px;
     background-color: #363940;
     border-radius: 32px;
     gap: 8px;
@@ -197,7 +206,7 @@ body, html {
     min-height: 0;
     width: calc(100vw - 10px);
   }
-  
+
   .main-page {
     display: flex;
     flex-direction: column;
@@ -213,12 +222,18 @@ body, html {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
