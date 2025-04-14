@@ -7,6 +7,7 @@ import Title from "./Title";
 function ChatBox() {
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
     const sendToGPT = async (queryText) => {
         try {
             setIsLoading(true);
@@ -15,7 +16,7 @@ function ChatBox() {
                 { type: "response", message: "thinking..." }
             ]);
             const gptResponse = await sendToGPTApi(queryText);
-        
+
             setMessages((prevMessages) => [
                 ...prevMessages.slice(0, -1),
                 { type: "response", message: gptResponse }
@@ -24,12 +25,12 @@ function ChatBox() {
             console.error("Error sending message to GPT:", error);
             setMessages((prevMessages) => [
                 ...prevMessages.slice(0, -1),
-                { type: "response", message: "Error Send To GPT"}
-          ]);
-        } 
+                { type: "response", message: "Error Send To GPT" }
+            ]);
+        }
 
         setIsLoading(false)
-      };
+    };
 
     const handelGetNewMessage = (newMessage) => {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -37,18 +38,12 @@ function ChatBox() {
     }
 
     return (
-        <div className="temp">
-            <div>
-                <Title className="k-gpt"/>
-            </div>
-            <div className="chat-box">
-                <MessageList messages={messages} />
-            </div>
-            <div className="">
-                <ChatInput onAddMessage={handelGetNewMessage} isLoading={isLoading}/>
-            </div>
+        <div className="main-page">
+            <Title className="k-gpt" />
+            <MessageList messages={messages} />
+            <ChatInput onAddMessage={handelGetNewMessage} isLoading={isLoading} />
         </div>
-        
-        
+
+
     );
 } export default ChatBox;

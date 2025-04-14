@@ -6,7 +6,7 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 function ChatInput({ onAddMessage, isLoading }) {
     const [input, setInput] = useState("");
     const textareaRef = useRef(null);
-    
+
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -14,40 +14,42 @@ function ChatInput({ onAddMessage, isLoading }) {
         if (input.trim() === "")
             return;
 
-        onAddMessage({type:"query", message:input});
+        onAddMessage({ type: "query", message: input });
         setInput("");
     };
 
     useEffect(() => {
         if (textareaRef.current) {
-        textareaRef.current.style.height = "auto";
-        textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 150)}px`;
+            textareaRef.current.style.height = "auto";
+            textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 150)}px`;
         }
     }, [input]);
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter" && !e.shiftKey && !isMobile && !isLoading) {
-            e.preventDefault();  
-            handleSend(e);       
+            e.preventDefault();
+            handleSend(e);
         }
     };
 
     return (
-    <form onSubmit={handleSend} className="chat-input">
-        <textarea className="textarea"
-            ref={textareaRef}
-            value={input} 
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="What do you have in mind?"   
-        />
-        <button type="submit" disabled={isLoading}>
-        {isLoading ? (
-                    <FaSpinner className="spinner" size={24} />
-                ) : (
-                    <FaArrowUp size={24} />
-                )}
-        </button>
-    </form>
+        <div>
+            <form onSubmit={handleSend} className="chat-input">
+                <textarea className="textarea"
+                    ref={textareaRef}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="What do you have in mind?"
+                />
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? (
+                        <FaSpinner className="spinner" size={24} />
+                    ) : (
+                        <FaArrowUp size={24} />
+                    )}
+                </button>
+            </form>
+        </div>
     );
 } export default ChatInput;
