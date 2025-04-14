@@ -101,7 +101,7 @@ html {
   background-color: #363940;
   border-radius: 32px;
   padding: 8px;
-  /* margin-bottom: 8px; */
+  margin-bottom: 8px;
 
 }
 
@@ -160,7 +160,7 @@ html {
 
 .chat-input textarea {
   flex: 9;
-  padding: 12px;
+  padding: 8px 8px 4px 8px ;
   font-size: 16px;
   border: none;
   outline: none;
@@ -177,7 +177,7 @@ html {
   /* opacity: 0.9; */
 }
 
-.chat-input button {
+/* .chat-input button {
   padding: 12px;
   font-size: 16px;
   align-items: flex-end;
@@ -188,12 +188,12 @@ html {
 
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
+} */
 
-.chat-input button:hover {
+/* .chat-input button:hover {
   background-color: #6cd0d4;
   opacity: 0.9;
-}
+} */
 
 .spinner {
   animation: spin 1s linear infinite;
@@ -208,7 +208,7 @@ html {
 
 @media (max-width: 600px) {
   .input-box {
-    border-radius: 32px 32px 0px 0px
+    margin-bottom: 4px;
   }
 
   .input-buttons button {
@@ -226,26 +226,16 @@ html {
     margin: 0;
     background-color: #282c34;
   }
-
+  .chat-input textarea {
+    padding: 8px 8px 4px 8px ;
+  }
   .chat-input {
-    display: flex;
-    flex-direction: row;
-    flex: 2;
-    position: static;
-    padding: 8px;
-    background-color: #363940;
-    border-radius: 32px;
-    gap: 8px;
-    box-sizing: border-box;
     width: calc(100vw - 10px);
-    align-items: flex-end;
-    height: inherit;
   }
 
   .chat-input textarea {
     font-size: 16px;
     transform: scale(0.9);
-    /* margin-bottom: 8px; */
   }
 
   .message-item {
