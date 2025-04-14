@@ -15,13 +15,15 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 16px;
   color: white;
+
+  min-height: 100dvh; max-height: 100dvh;
 }
 
 .App-link {
@@ -38,10 +40,12 @@ body, html {
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
-  height: calc(var(--vh, 1vh) * 100);
+  /* height: calc(var(--vh, 1vh) * 100); */
   align-items: center;
   gap: 8px;
   transition: height 0.3s ease;
+
+  min-height: 100dvh; max-height: 100dvh;
 }
 
 /* 
