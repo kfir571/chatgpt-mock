@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
   color: white;
 }
 
@@ -48,7 +48,7 @@ body, html {
   display: flex;
   flex-direction: column;
   flex: 1;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background-color: #282c34;
   /* padding: 16px; */
   overflow: hidden;
@@ -114,7 +114,7 @@ body, html {
 .chat-input textarea {
   flex: 9;
   padding: 12px;
-  font-size: 14px;
+  font-size: 16px;
   border: none;
   outline: none;
   color: #ffffff;
@@ -195,7 +195,7 @@ body, html {
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-  
+    min-height: 0;
     width: calc(100vw - 10px);
   }
   

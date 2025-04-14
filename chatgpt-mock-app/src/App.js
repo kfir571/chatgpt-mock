@@ -6,20 +6,21 @@ import './App.css';
 function App() {
 
   useEffect(() => {
-    function setVhVariable() {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    function updateVh() {
+      const vh = window.visualViewport?.height || window.innerHeight;
+      document.documentElement.style.setProperty('--vh', `${vh * 0.01}px`);
     }
-
-    setVhVariable();
-    window.addEventListener('resize', setVhVariable);
-    window.addEventListener('load', setVhVariable);
-    window.visualViewport?.addEventListener('scroll', setVhVariable);
-
+  
+    updateVh();
+  
+    window.addEventListener('resize', updateVh);
+    window.visualViewport?.addEventListener('resize', updateVh);
+    window.visualViewport?.addEventListener('scroll', updateVh);
+  
     return () => {
-      window.removeEventListener('resize', setVhVariable);
-      window.removeEventListener('load', setVhVariable);
-      window.visualViewport?.removeEventListener('scroll', setVhVariable);
+      window.removeEventListener('resize', updateVh);
+      window.visualViewport?.removeEventListener('resize', updateVh);
+      window.visualViewport?.removeEventListener('scroll', updateVh);
     };
   }, []);
   
