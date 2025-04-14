@@ -97,9 +97,9 @@ html {
 .input-box {
   display: flex;
   flex-direction: column;
-  /* gap: 8px; */
+  gap: 8px;
   background-color: #363940;
-  border-radius: 32px;
+  border-radius: 24px;
   padding: 8px;
   margin-bottom: 8px;
 
@@ -108,12 +108,21 @@ html {
 .input-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
+  padding-right: 8px;
 }
 
 .input-buttons div {
   display: flex;
   gap: 8px;
+}
+
+.input-buttons .left{
+  padding-left:8px;
+}
+
+.input-buttons .right{
+  padding-right:8px;
 }
 
 .input-buttons button {
@@ -227,15 +236,12 @@ html {
     background-color: #282c34;
   }
   .chat-input textarea {
+    font-size: 16px;
     padding: 8px 8px 4px 8px ;
+    transform: scale(0.9);
   }
   .chat-input {
     width: calc(100vw - 10px);
-  }
-
-  .chat-input textarea {
-    font-size: 16px;
-    transform: scale(0.9);
   }
 
   .message-item {
