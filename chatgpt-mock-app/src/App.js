@@ -6,21 +6,21 @@ import './App.css';
 function App() {
 
   useEffect(() => {
-    function updateVh() {
+    const setRealVh = () => {
       const vh = window.visualViewport?.height || window.innerHeight;
       document.documentElement.style.setProperty('--vh', `${vh * 0.01}px`);
-    }
+    };
   
-    updateVh();
+    setRealVh();
   
-    window.addEventListener('resize', updateVh);
-    window.visualViewport?.addEventListener('resize', updateVh);
-    window.visualViewport?.addEventListener('scroll', updateVh);
+    window.visualViewport?.addEventListener('resize', setRealVh);
+    window.visualViewport?.addEventListener('scroll', setRealVh);
+    window.addEventListener('resize', setRealVh);
   
     return () => {
-      window.removeEventListener('resize', updateVh);
-      window.visualViewport?.removeEventListener('resize', updateVh);
-      window.visualViewport?.removeEventListener('scroll', updateVh);
+      window.visualViewport?.removeEventListener('resize', setRealVh);
+      window.visualViewport?.removeEventListener('scroll', setRealVh);
+      window.removeEventListener('resize', setRealVh);
     };
   }, []);
   

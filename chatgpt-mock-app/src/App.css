@@ -43,6 +43,7 @@ html {
   align-items: center;
   gap: 8px;
   transition: height 0.3s ease;
+  height: calc(var(--vh, 1vh) * 100);
 
   min-height: 100dvh;
   max-height: 100dvh;
