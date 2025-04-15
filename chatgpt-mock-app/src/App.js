@@ -5,7 +5,7 @@ import MainSidebar from './components/MainSidebar';
 import ChatBox from './components/ChatBox';
 
 function App() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
     const setRealVh = () => {

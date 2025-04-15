@@ -204,7 +204,7 @@ html {
 @media (max-width: 600px) {
   .input-box {
     margin-bottom: 4px;
-    width: calc(100vw - 85px);
+    width: 95%;
   }
 
   .input-buttons button {
@@ -217,18 +217,6 @@ html {
     height: 32px;
   }
 
-  body,
-  html {
-    margin: 0;
-    background-color: #282c34;
-  }
-
-  .chat-input textarea {
-    font-size: 16px;
-    padding: 8px 8px 4px 8px;
-    transform: scale(0.9);
-  }
-
   .message-item {
     font-size: 16px;
     transform: scale(0.9);
@@ -236,29 +224,18 @@ html {
   }
 
   .message-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 8px;
-    overflow-y: auto;
-    background-color: transparent;
-    align-items: stretch;
-    box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
     min-height: 0;
-    width: calc(100vw - 10px);
+    width: 95%;;
   }
 
   .main-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
     height: calc(var(--vh, 1vh) * 100);
-    align-items: center;
-    gap: 8px;
     transition: height 0.3s ease;
+  }
+
+  .sidebar.collapsed {
+    width: 50px;
   }
 }
 
@@ -304,7 +281,7 @@ html {
   align-items: center;
   gap: 12px;
   padding: 0 1rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   cursor: pointer;
   margin-top: 16px;
 }
