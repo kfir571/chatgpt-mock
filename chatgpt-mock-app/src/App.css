@@ -213,10 +213,10 @@ body {
 
 @media (max-width: 600px) {
 
-  body,
+  /* body,
   html {
     overflow: auto !important;
-  }
+  } */
 
   .input-buttons button {
     width: 32px;

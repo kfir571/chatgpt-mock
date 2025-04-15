@@ -1,4 +1,4 @@
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaPlus } from "react-icons/fa";
 
 export default function MainSidebar({ collapsed, setCollapsed, setHistoryChat }) {
   const changeChat = (e) => {
@@ -15,6 +15,7 @@ export default function MainSidebar({ collapsed, setCollapsed, setHistoryChat })
         <li id={0} onClick={changeChat}>{!collapsed && <span>Chat 1</span>}</li>
         <li id={1} onClick={changeChat}>{!collapsed && <span>Chat 2</span>}</li>
         <li id={2} onClick={changeChat}>{!collapsed && <span>Chat 3</span>}</li>
+        <li><FaPlus/></li>
       </ul>
     </aside>
   );
