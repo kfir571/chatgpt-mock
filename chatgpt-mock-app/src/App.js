@@ -10,7 +10,11 @@ function App() {
   useEffect(() => {
     const setRealVh = () => {
       const vh = window.visualViewport?.height || window.innerHeight;
-      document.documentElement.style.setProperty('--vh', `${vh * 0.01}px`);
+      document.documentElement.style.setProperty("--vh", `${vh * 0.01}px`);
+      document.documentElement.style.setProperty(
+        "--offset-title",
+        `${window.scrollY || document.documentElement.scrollTop}px`
+      );
     };
 
     setRealVh();
