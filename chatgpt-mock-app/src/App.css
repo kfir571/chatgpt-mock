@@ -211,6 +211,12 @@ html {
 }
 
 @media (max-width: 600px) {
+
+  body,
+html {
+
+  overflow-y: auto ;
+}
   /* .input-box {
   margin-right: 10.5%;
   margin-bottom: 4px;
