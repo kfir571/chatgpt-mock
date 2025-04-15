@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  top: calc(0px + var(--offset-title));
 }
 
 .App-logo {
