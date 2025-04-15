@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from "react";
-import { 
-    FaArrowUp, 
-    FaSpinner, 
-    FaMicrophone, 
-    FaGlobe, 
-    FaPlus, 
+import {
+    FaArrowUp,
+    FaSpinner,
+    FaMicrophone,
+    FaGlobe,
+    FaPlus,
     FaEllipsisH
-    } from "react-icons/fa";
+} from "react-icons/fa";
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -40,7 +40,7 @@ function ChatInput({ onAddMessage, isLoading }) {
     };
 
     return (
-        <div className="input-box">
+        <div className={"input-box"}>
             <form id="chat-form" onSubmit={handleSend} className="chat-input">
                 <textarea className="textarea"
                     ref={textareaRef}
@@ -52,27 +52,25 @@ function ChatInput({ onAddMessage, isLoading }) {
 
             </form>
             <div className="input-buttons">
-                <div>
-                    <button><FaPlus size={18} color="#bbbbbb"/></button>
-                    <button><FaGlobe size={18} color="#bbbbbb"/></button>
-                    <button><FaEllipsisH size={18} color="#bbbbbb"/></button>
+                <div className="left">
+                    <button><FaPlus size={18} color="#bbbbbb" /></button>
+                    <button><FaGlobe size={18} color="#bbbbbb" /></button>
+                    <button><FaEllipsisH size={18} color="#bbbbbb" /></button>
                 </div>
-                <div>
+                <div className="right">
                     <button><FaMicrophone size={18} /></button>
-                    <button 
+                    <button
                         id="submit-btn"
                         type="submit"
                         disabled={isLoading}
                         form="chat-form">
                         {isLoading ? (
-                            <FaSpinner className="spinner" size={24} color="#363940"/>
+                            <FaSpinner className="spinner" size={24} color="#363940" />
                         ) : (
-                            <FaArrowUp size={24} color="#363940"/>
+                            <FaArrowUp size={24} color="#363940" />
                         )}
                     </button>
                 </div>
-
-
             </div>
         </div>
     );

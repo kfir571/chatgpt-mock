@@ -16,12 +16,9 @@
 .App-header {
   background-color: #282c34;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: left;
   font-size: 16px;
   color: white;
-
   min-height: 100dvh;
   max-height: 100dvh;
 }
@@ -44,6 +41,20 @@ html {
   gap: 8px;
   transition: height 0.3s ease;
   height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+
+  min-height: 100dvh;
+  max-height: 100dvh;
+}
+
+.main-page.collapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: height 0.3s ease;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
 
   min-height: 100dvh;
   max-height: 100dvh;
@@ -62,9 +73,8 @@ html {
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
-
-  width: calc(100vw - 225px);
-
+  margin-top: 32px;
+  width: 95%;
   height: calc(var(--vh, 1vh) * 100);
   background-color: #282c34;
   font-size: 16px;
@@ -102,6 +112,7 @@ html {
   border-radius: 24px;
   padding: 8px;
   margin-bottom: 8px;
+  width: 95%;
 
 }
 
@@ -109,7 +120,6 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: 8px;
 }
 
 .input-buttons div {
@@ -117,16 +127,15 @@ html {
   gap: 8px;
 }
 
-.input-buttons .left{
-  padding-left:8px;
+.input-buttons .left {
+  padding-left: 8px;
 }
 
-.input-buttons .right{
-  padding-right:8px;
+.input-buttons .right {
+  padding-right: 8px;
 }
 
 .input-buttons button {
-  /* font-size: 40px; */
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -134,7 +143,6 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.6);
   color: rgb(142, 138, 138);
 
-  /* gap: 8px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,19 +170,16 @@ html {
   flex-direction: row;
   flex: 1;
   position: static;
-  /* gap: 8px; */
-  width: calc(100vw - 225px);
   height: inherit;
 }
 
 .chat-input textarea {
   flex: 9;
-  padding: 8px 8px 4px 8px ;
+  padding: 8px 8px 4px 8px;
   font-size: 16px;
   border: none;
   outline: none;
   color: #bbbbbb;
-  /* opacity: 0.9; */
   background-color: transparent;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -183,26 +188,7 @@ html {
 
 .chat-input input::placeholder {
   color: #bbbbbb;
-  /* opacity: 0.9; */
 }
-
-/* .chat-input button {
-  padding: 12px;
-  font-size: 16px;
-  align-items: flex-end;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  border-radius: 32px 32px 32px 32px;
-
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-} */
-
-/* .chat-input button:hover {
-  background-color: #6cd0d4;
-  opacity: 0.9;
-} */
 
 .spinner {
   animation: spin 1s linear infinite;
@@ -218,6 +204,7 @@ html {
 @media (max-width: 600px) {
   .input-box {
     margin-bottom: 4px;
+    width: calc(100vw - 85px);
   }
 
   .input-buttons button {
@@ -235,13 +222,11 @@ html {
     margin: 0;
     background-color: #282c34;
   }
+
   .chat-input textarea {
     font-size: 16px;
-    padding: 8px 8px 4px 8px ;
+    padding: 8px 8px 4px 8px;
     transform: scale(0.9);
-  }
-  .chat-input {
-    width: calc(100vw - 10px);
   }
 
   .message-item {
@@ -295,4 +280,68 @@ html {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.sidebar {
+  position: relative;
+  direction: ltr;
+  left: 0;
+  width: 150px;
+  min-height: 100vh;
+  background-color: #1f2937;
+  color: white;
+  transition: width 0.3s ease;
+  padding-top: 1rem;
+  
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar-menu li:hover {
+  background-color: #374151;
+}
+
+.app-container {
+  display: flex;
+}
+
+.main-content {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+  width: 100%;
+}
+
+.main-content.collapsed {
+  margin-left: 64px;
 }

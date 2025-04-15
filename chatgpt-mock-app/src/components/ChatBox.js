@@ -2,9 +2,8 @@ import { useState } from "react";
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 import { sendToGPTApi } from "../services/gptService";
-import Title from "./Title";
 
-function ChatBox() {
+function ChatBox({collapsed}) {
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -38,8 +37,7 @@ function ChatBox() {
     }
 
     return (
-        <div className="main-page">
-            <Title className="k-gpt" />
+        <div className={`main-page ${collapsed ? "collapsed" : ""}`}>
             <MessageList messages={messages} />
             <ChatInput onAddMessage={handelGetNewMessage} isLoading={isLoading} />
         </div>
