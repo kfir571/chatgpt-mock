@@ -21,7 +21,7 @@
   font-size: 16px;
   color: white;
   min-height: 100dvh;
-  max-height: 100dvh;
+  /* max-height: 100dvh; */
   height: calc(var(--vh, 1vh) * 100);
   /* top: calc(0px + var(--offset-title)); */
 }
@@ -30,13 +30,16 @@
   color: #61dafb;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: #282c34;
-  overflow: hidden; /* או auto אם אתה כן רוצה גלילה */
-  position: relative; /* חשוב אם יש child עם absolute */
+  overflow: hidden;
+  /* או auto אם אתה כן רוצה גלילה */
+  position: relative;
+  /* חשוב אם יש child עם absolute */
   top: 0;
 }
 
@@ -47,7 +50,6 @@ html, body {
   align-items: center;
   gap: 8px;
   transition: height 0.3s ease;
-  /* height: calc(var(--vh, 1vh) * 100); */
   width: 100%;
   padding-right: 1%;
 
@@ -62,7 +64,6 @@ html, body {
   align-items: center;
   gap: 8px;
   transition: height 0.3s ease;
-  /* height: calc(var(--vh, 1vh) * 100); */
   width: 100%;
   padding-right: 1%;
   /* min-height: 100dvh;     tray
@@ -82,7 +83,8 @@ html, body {
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
-  margin-top: 32px; /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  margin-top: 32px;
+  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   /* margin-right: 1.5%; */
   width: 100%;
   /* height: calc(var(--vh, 1vh) * 100); */
@@ -216,11 +218,11 @@ html, body {
 
 @media (max-width: 600px) {
 
-  /* body,
-html {
+  body,
+  html {
+    overflow: auto !important;
+  }
 
-  overflow-y: auto ;
-} */
   /* .input-box {
   margin-right: 10.5%;
   margin-bottom: 4px;
@@ -242,7 +244,8 @@ html {
     transform: scale(0.9);
     max-width: 80%;
   }
-/* 
+
+  /* 
   .message-list {
     min-height: 0;
   margin-right: 10.5%;
@@ -288,11 +291,12 @@ html {
   direction: ltr;
   left: 0;
   width: 155px;
-  min-height: 100vh;
-  background: linear-gradient(to right, rgb(77, 80, 85), rgba(40, 52, 70, 0));  color: white;
+  min-height: 100%;
+  background: linear-gradient(to right, rgb(77, 80, 85), rgba(40, 52, 70, 0));
+  color: white;
   transition: width 0.3s ease;
   padding-top: 1rem;
-  
+
 }
 
 .sidebar.collapsed {

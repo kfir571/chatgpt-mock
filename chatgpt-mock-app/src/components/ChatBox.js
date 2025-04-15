@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState/*, useRef */} from "react";
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 import { sendToGPTApi } from "../services/gptService";
@@ -6,7 +6,7 @@ import { sendToGPTApi } from "../services/gptService";
 function ChatBox({collapsed}) {
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const topRef = useRef(null);
+    // const topRef = useRef(null);
 
     const sendToGPT = async (queryText) => {
         try {
@@ -35,11 +35,11 @@ function ChatBox({collapsed}) {
     const handelGetNewMessage = (newMessage) => {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         sendToGPT(newMessage.message);
-        topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        // topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     return (
-        <div className={`main-page ${collapsed ? "collapsed" : ""}` } ref={topRef}>
+        <div className={`main-page ${collapsed ? "collapsed" : ""}` } /*ref={topRef}*/>
             <MessageList messages={messages} />
             <ChatInput onAddMessage={handelGetNewMessage} isLoading={isLoading} />
         </div>
