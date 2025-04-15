@@ -212,12 +212,6 @@ body {
 }
 
 @media (max-width: 600px) {
-
-  /* body,
-  html {
-    overflow: auto !important;
-  } */
-
   .input-buttons button {
     width: 32px;
     height: 32px;
@@ -266,7 +260,7 @@ body {
   left: 0;
   width: 155px;
   min-height: 100%;
-  background: linear-gradient(to right, rgb(77, 80, 85), rgba(40, 52, 70, 0));
+  background-color: transparent;
   color: white;
   transition: width 0.3s ease;
   padding-top: 1rem;
