@@ -3,43 +3,48 @@ import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 import { sendToGPTApi } from "../services/gptService";
 
-function ChatBox({collapsed}) {
-    const [messages, setMessages] = useState([]);
+function ChatBox({ collapsed, messages, setMessages, historyChat }) {
     const [isLoading, setIsLoading] = useState(false);
-    // const topRef = useRef(null);
 
     const sendToGPT = async (queryText) => {
         try {
             setIsLoading(true);
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { type: "response", message: "thinking..." }
-            ]);
+            setMessages((prevMessages) => {
+                const update = [...prevMessages];
+                update[historyChat] = [...update[historyChat], { type: "response", message: "thinking..." }];
+                return update;
+            });
             const gptResponse = await sendToGPTApi(queryText);
 
-            setMessages((prevMessages) => [
-                ...prevMessages.slice(0, -1),
-                { type: "response", message: gptResponse }
-            ]);
+            setMessages((prevMessages) => {
+                const update = [...prevMessages];
+                update[historyChat] = [...update[historyChat].slice(0, -1), { type: "response", message: gptResponse }];
+                return update;
+            });
         } catch (error) {
             console.error("Error sending message to GPT:", error);
-            setMessages((prevMessages) => [
-                ...prevMessages.slice(0, -1),
-                { type: "response", message: "Error Send To GPT" }
-            ]);
+            setMessages((prevMessages) => {
+                const update = [...prevMessages];
+                update[historyChat] = [...update[historyChat].slice(0, -1), { type: "response", message: "Error Send To GPT" }];
+                return update;
+            });
         }
 
         setIsLoading(false)
     };
 
     const handelGetNewMessage = (newMessage) => {
-        setMessages((prevMessages) => [...prevMessages, newMessage]);
+        setMessages((prevMessages) => {
+            const update = [...prevMessages];
+            update[historyChat] = [...update[historyChat], newMessage];
+            return update;
+        }); 
+
         sendToGPT(newMessage.message);
-        // topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     return (
-        <div className={`main-page ${collapsed ? "collapsed" : ""}` } /*ref={topRef}*/>
+        <div className={`main-page ${collapsed ? "collapsed" : ""}`} >
             <MessageList messages={messages} />
             <ChatInput onAddMessage={handelGetNewMessage} isLoading={isLoading} />
         </div>

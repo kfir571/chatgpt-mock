@@ -6,6 +6,8 @@ import ChatBox from './components/ChatBox';
 
 function App() {
   const [collapsed, setCollapsed] = useState(true);
+  const [messages, setMessages] = useState([[], [], []]);
+  const [historyChat, setHistoryChat] = useState(0);
 
   useEffect(() => {
     const setRealVh = () => {
@@ -37,8 +39,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <MainSidebar collapsed={collapsed} setCollapsed={handleToggleSidebar} />
-        <ChatBox collapsed={collapsed} />
+        <MainSidebar collapsed={collapsed} setCollapsed={handleToggleSidebar} setHistoryChat={setHistoryChat} />
+        <ChatBox collapsed={collapsed} messages={messages[historyChat]} setMessages={setMessages} historyChat={historyChat} />
       </header>
     </div>
   );

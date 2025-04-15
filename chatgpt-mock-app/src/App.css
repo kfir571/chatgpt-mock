@@ -37,9 +37,7 @@ body {
   height: 100%;
   background-color: #282c34;
   overflow: hidden;
-  /* או auto אם אתה כן רוצה גלילה */
   position: relative;
-  /* חשוב אם יש child עם absolute */
   top: 0;
 }
 
@@ -124,9 +122,6 @@ body {
   border-radius: 24px;
   padding-top: 8px;
   padding-bottom: 8px;
-  /* margin-right: 1.5%; */
-
-  /* margin-bottom: 8px; */
   width: 100%;
 
 }
@@ -223,12 +218,6 @@ body {
     overflow: auto !important;
   }
 
-  /* .input-box {
-  margin-right: 10.5%;
-  margin-bottom: 4px;
-    width: 100%;
-  } */
-
   .input-buttons button {
     width: 32px;
     height: 32px;
@@ -245,25 +234,10 @@ body {
     max-width: 80%;
   }
 
-  /* 
-  .message-list {
-    min-height: 0;
-  margin-right: 10.5%;
-  } */
-
-  /* .main-page {
-    height: calc(var(--vh, 1vh) * 100);
-    transition: height 0.3s ease;
-  } */
-
   .sidebar.collapsed {
     width: 40px !important;
-    /* background-color: transparent !important; */
   }
 
-  /* .sidebar {
-    
-  } */
 }
 
 @keyframes App-logo-spin {
